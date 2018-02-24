@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.matai.dao.IWebsiteDao" >
+  <resultMap id="BaseResultMap" type="com.matai.model.website" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="assortment" property="assortment" jdbcType="INTEGER" />
+    <result column="domain" property="domain" jdbcType="VARCHAR" />
+    <result column="userAgent" property="useragent" jdbcType="VARCHAR" />
+    <result column="saveDir" property="savedir" jdbcType="VARCHAR" />
+    <result column="cookie" property="cookie" jdbcType="VARCHAR" />
+    <result column="referer" property="referer" jdbcType="VARCHAR" />
+    <result column="listUrlRegex" property="listurlregex" jdbcType="VARCHAR" />
+    <result column="listXPath" property="listxpath" jdbcType="VARCHAR" />
+    <result column="titleXPath" property="titlexpath" jdbcType="VARCHAR" />
+    <result column="contentUrlRegex" property="contenturlregex" jdbcType="VARCHAR" />
+    <result column="contentXPath" property="contentxpath" jdbcType="VARCHAR" />
+    <result column="abstractXPath" property="abstractxpath" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="dateXPath" property="datexpath" jdbcType="VARCHAR" />
+    <result column="dateRegex" property="dateregex" jdbcType="VARCHAR" />
+    <result column="sleepTime" property="sleeptime" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, url, assortment, domain, userAgent, saveDir, cookie, referer, listUrlRegex, 
+    listXPath, titleXPath, contentUrlRegex, contentXPath, abstractXPath, status, dateXPath, 
+    dateRegex, sleepTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from website
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from website
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.matai.model.website" >
+    insert into website (id, name, url, 
+      assortment, domain, userAgent, 
+      saveDir, cookie, referer, 
+      listUrlRegex, listXPath, titleXPath, 
+      contentUrlRegex, contentXPath, abstractXPath, 
+      status, dateXPath, dateRegex, 
+      sleepTime)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{assortment,jdbcType=INTEGER}, #{domain,jdbcType=VARCHAR}, #{useragent,jdbcType=VARCHAR}, 
+      #{savedir,jdbcType=VARCHAR}, #{cookie,jdbcType=VARCHAR}, #{referer,jdbcType=VARCHAR}, 
+      #{listurlregex,jdbcType=VARCHAR}, #{listxpath,jdbcType=VARCHAR}, #{titlexpath,jdbcType=VARCHAR}, 
+      #{contenturlregex,jdbcType=VARCHAR}, #{contentxpath,jdbcType=VARCHAR}, #{abstractxpath,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{datexpath,jdbcType=VARCHAR}, #{dateregex,jdbcType=VARCHAR}, 
+      #{sleeptime,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.matai.model.website" >
+    insert into website
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="assortment != null" >
+        assortment,
+      </if>
+      <if test="domain != null" >
+        domain,
+      </if>
+      <if test="useragent != null" >
+        userAgent,
+      </if>
+      <if test="savedir != null" >
+        saveDir,
+      </if>
+      <if test="cookie != null" >
+        cookie,
+      </if>
+      <if test="referer != null" >
+        referer,
+      </if>
+      <if test="listurlregex != null" >
+        listUrlRegex,
+      </if>
+      <if test="listxpath != null" >
+        listXPath,
+      </if>
+      <if test="titlexpath != null" >
+        titleXPath,
+      </if>
+      <if test="contenturlregex != null" >
+        contentUrlRegex,
+      </if>
+      <if test="contentxpath != null" >
+        contentXPath,
+      </if>
+      <if test="abstractxpath != null" >
+        abstractXPath,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="datexpath != null" >
+        dateXPath,
+      </if>
+      <if test="dateregex != null" >
+        dateRegex,
+      </if>
+      <if test="sleeptime != null" >
+        sleepTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="assortment != null" >
+        #{assortment,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null" >
+        #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="useragent != null" >
+        #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="savedir != null" >
+        #{savedir,jdbcType=VARCHAR},
+      </if>
+      <if test="cookie != null" >
+        #{cookie,jdbcType=VARCHAR},
+      </if>
+      <if test="referer != null" >
+        #{referer,jdbcType=VARCHAR},
+      </if>
+      <if test="listurlregex != null" >
+        #{listurlregex,jdbcType=VARCHAR},
+      </if>
+      <if test="listxpath != null" >
+        #{listxpath,jdbcType=VARCHAR},
+      </if>
+      <if test="titlexpath != null" >
+        #{titlexpath,jdbcType=VARCHAR},
+      </if>
+      <if test="contenturlregex != null" >
+        #{contenturlregex,jdbcType=VARCHAR},
+      </if>
+      <if test="contentxpath != null" >
+        #{contentxpath,jdbcType=VARCHAR},
+      </if>
+      <if test="abstractxpath != null" >
+        #{abstractxpath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="datexpath != null" >
+        #{datexpath,jdbcType=VARCHAR},
+      </if>
+      <if test="dateregex != null" >
+        #{dateregex,jdbcType=VARCHAR},
+      </if>
+      <if test="sleeptime != null" >
+        #{sleeptime,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.matai.model.website" >
+    update website
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="assortment != null" >
+        assortment = #{assortment,jdbcType=INTEGER},
+      </if>
+      <if test="domain != null" >
+        domain = #{domain,jdbcType=VARCHAR},
+      </if>
+      <if test="useragent != null" >
+        userAgent = #{useragent,jdbcType=VARCHAR},
+      </if>
+      <if test="savedir != null" >
+        saveDir = #{savedir,jdbcType=VARCHAR},
+      </if>
+      <if test="cookie != null" >
+        cookie = #{cookie,jdbcType=VARCHAR},
+      </if>
+      <if test="referer != null" >
+        referer = #{referer,jdbcType=VARCHAR},
+      </if>
+      <if test="listurlregex != null" >
+        listUrlRegex = #{listurlregex,jdbcType=VARCHAR},
+      </if>
+      <if test="listxpath != null" >
+        listXPath = #{listxpath,jdbcType=VARCHAR},
+      </if>
+      <if test="titlexpath != null" >
+        titleXPath = #{titlexpath,jdbcType=VARCHAR},
+      </if>
+      <if test="contenturlregex != null" >
+        contentUrlRegex = #{contenturlregex,jdbcType=VARCHAR},
+      </if>
+      <if test="contentxpath != null" >
+        contentXPath = #{contentxpath,jdbcType=VARCHAR},
+      </if>
+      <if test="abstractxpath != null" >
+        abstractXPath = #{abstractxpath,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="datexpath != null" >
+        dateXPath = #{datexpath,jdbcType=VARCHAR},
+      </if>
+      <if test="dateregex != null" >
+        dateRegex = #{dateregex,jdbcType=VARCHAR},
+      </if>
+      <if test="sleeptime != null" >
+        sleepTime = #{sleeptime,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.matai.model.website" >
+    update website
+    set name = #{name,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      assortment = #{assortment,jdbcType=INTEGER},
+      domain = #{domain,jdbcType=VARCHAR},
+      userAgent = #{useragent,jdbcType=VARCHAR},
+      saveDir = #{savedir,jdbcType=VARCHAR},
+      cookie = #{cookie,jdbcType=VARCHAR},
+      referer = #{referer,jdbcType=VARCHAR},
+      listUrlRegex = #{listurlregex,jdbcType=VARCHAR},
+      listXPath = #{listxpath,jdbcType=VARCHAR},
+      titleXPath = #{titlexpath,jdbcType=VARCHAR},
+      contentUrlRegex = #{contenturlregex,jdbcType=VARCHAR},
+      contentXPath = #{contentxpath,jdbcType=VARCHAR},
+      abstractXPath = #{abstractxpath,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      dateXPath = #{datexpath,jdbcType=VARCHAR},
+      dateRegex = #{dateregex,jdbcType=VARCHAR},
+      sleepTime = #{sleeptime,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
